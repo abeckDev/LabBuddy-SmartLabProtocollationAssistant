@@ -240,11 +240,3 @@ Special thanks to [@glejdis](https://github.com/glejdis) for her invaluable supp
 ## 📄 License
 
 This project is licensed under the **MIT License** — see the [LICENSE](./LICENSE) file for details.
-
-Copyright © 2026 Alexander Beck
-
-## 🚧 Known Issues
-
-- **Limited language support** — While we aim to support more languages, the current version is optimized for English and German.
-- **Performance on older devices** — Users on older systems might experience latency due to processing demands.
-- **Experimental features** — Features marked as experimental may not be fully stable and are subject to change based on user feedback.
