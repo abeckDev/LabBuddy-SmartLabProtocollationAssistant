@@ -2,7 +2,7 @@
 
 > *"Describe your experiment, we document it!"*
 
-**LabBuddy** is a voice-powered lab experiment protocol assistant built on the **Azure Voice Live API**. It listens while a researcher dictates their experiment, automatically extracts structured protocol fields in real-time using an **Azure OpenAI GPT-4o** extraction agent, and produces exportable artifacts (JSON, Excel, transcript, audio).
+**LabBuddy** is a voice-powered lab experiment protocol assistant built on the **Azure Voice Live API**. It listens while a researcher dictates their experiment, automatically extracts structured protocol fields in real-time using an Azure OpenAI extraction agent, and produces exportable artifacts (JSON, Excel, transcript, audio).
 
 LabBuddy supports bilingual voice sessions (German / English) and ships with two ready-to-use demo profiles for Adhesive Technologies and Hair Care R&D labs — both fully customizable.
 
@@ -167,7 +167,7 @@ LabBuddy ships with two example profiles in `backend/configs/`:
 | Adhesive Technologies Lab | `adhesive_technologies.json` | Formulation, analytics, adhesive experiments |
 | Consumer Brands — Hair Care | `consumer_brands_haircare.json` | Shampoo/conditioner formulation and sensory tests |
 
-**To create a custom profile**, copy one of the existing JSON files, modify the `company`, `division`, `extraction_fields`, `required_fields`, `field_labels`, and `lims` sections, and place it in `backend/configs/`. The new profile will appear automatically in the UI dropdown on next startup.
+**To create a custom profile**, copy one of the existing JSON files, modify the `company`, `division`, `extraction_fields`, `required_fields`, `field_labels`, and `lims` sections, and place it in `backend/configs/`.
 
 ---
 
@@ -179,7 +179,7 @@ LabBuddy ships with two example profiles in `backend/configs/`:
 | **Local dev (API key)** | Python 3.10+, Azure AI Services resource with Voice Live access |
 | **Local dev (Managed Identity)** | Python 3.10+, `az login`, same resource |
 
-> **Azure region:** Voice Live API is available in `swedencentral`, `eastus2`, and selected other regions. Check the [Azure docs](https://learn.microsoft.com/azure/ai-services/speech-service/regions) for the latest list.
+> **Azure region:** Voice Live API is available in `swedencentral`, `eastus2`, and selected other regions. Check the [Azure docs](https://learn.microsoft.com/azure/ai-services/speech-service/regions) for the latest availability.
 
 ---
 
@@ -228,3 +228,23 @@ The UI includes a **Medium Tech mode** (🚀 toggle in header) that previews upc
 - **Agent Activity Feed** — transparent view of the multi-agent extraction workflow
 
 These features are **simulated** in the current release and marked with a `PREVIEW` badge.
+
+---
+
+## 🙏 Acknowledgements
+
+Special thanks to [@glejdis](https://github.com/glejdis) for her invaluable support and collaboration during the initial phase of this project. Her contributions helped shape the foundation of LabBuddy.
+
+---
+
+## 📄 License
+
+This project is licensed under the **MIT License** — see the [LICENSE](./LICENSE) file for details.
+
+Copyright © 2026 Alexander Beck
+
+## 🚧 Known Issues
+
+- **Limited language support** — While we aim to support more languages, the current version is optimized for English and German.
+- **Performance on older devices** — Users on older systems might experience latency due to processing demands.
+- **Experimental features** — Features marked as experimental may not be fully stable and are subject to change based on user feedback.
