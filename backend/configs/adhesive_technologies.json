@@ -1,0 +1,456 @@
+{
+  "profile_name": {
+    "de": "Klebetechnologien Labor",
+    "en": "Adhesive Technologies Lab"
+  },
+  "company": "Your Organization — Adhesive Technologies",
+  "division": "Adhesive Technologies",
+  "brand_color": "#0078D4",
+
+  "lims": {
+    "name": "LIMS",
+    "url_template": "https://lims.example.com/protocols/{protocol_id}"
+  },
+
+  "extraction_fields": {
+    "researcherName": {
+      "type": "string",
+      "description": {
+        "de": "Vollständiger Name des Forschers/der Forscherin",
+        "en": "Full name of the researcher"
+      }
+    },
+    "researcherId": {
+      "type": "string",
+      "description": {
+        "de": "Mitarbeiter-ID oder Personalnummer",
+        "en": "Employee ID or personnel number"
+      }
+    },
+    "projectName": {
+      "type": "string",
+      "description": {
+        "de": "Name des Forschungsprojekts",
+        "en": "Name of the research project"
+      }
+    },
+    "projectCode": {
+      "type": "string",
+      "description": {
+        "de": "Projektcode oder interne Referenznummer",
+        "en": "Project code or internal reference number"
+      }
+    },
+    "experimentTitle": {
+      "type": "string",
+      "description": {
+        "de": "Titel des Experiments",
+        "en": "Title of the experiment"
+      }
+    },
+    "experimentType": {
+      "type": "string",
+      "enum": ["Formulierung", "Analytik", "Stabilitaetstest", "Prozessoptimierung", "Qualitaetskontrolle", "Sonstiges"],
+      "description": {
+        "de": "Art des Experiments: Formulierung, Analytik, Stabilitätstest, Prozessoptimierung, Qualitätskontrolle, Sonstiges",
+        "en": "Type of experiment: Formulation, Analytics, Stability Test, Process Optimization, Quality Control, Other"
+      }
+    },
+    "experimentDate": {
+      "type": "string",
+      "description": {
+        "de": "Datum des Experiments (TT.MM.JJJJ)",
+        "en": "Date of the experiment (DD.MM.YYYY)"
+      }
+    },
+    "laboratory": {
+      "type": "string",
+      "description": {
+        "de": "Bezeichnung des Labors oder Laborraums",
+        "en": "Laboratory name or room designation"
+      }
+    },
+    "equipment": {
+      "type": "string",
+      "description": {
+        "de": "Verwendete Geräte und Instrumente (z.B. Rheometer, pH-Meter, Waage)",
+        "en": "Equipment and instruments used (e.g., rheometer, pH meter, balance)"
+      }
+    },
+    "rawMaterials": {
+      "type": "string",
+      "description": {
+        "de": "Liste der verwendeten Rohstoffe und Chemikalien mit Chargen-/Lotnummern",
+        "en": "List of raw materials and chemicals used with batch/lot numbers"
+      }
+    },
+    "rawMaterialSource": {
+      "type": "string",
+      "description": {
+        "de": "Herkunft/Lieferant der Rohstoffe (z.B. aus RMH-System)",
+        "en": "Source/supplier of raw materials (e.g., from RMH system)"
+      }
+    },
+    "sampleId": {
+      "type": "string",
+      "description": {
+        "de": "Proben-ID oder Probenbezeichnung",
+        "en": "Sample ID or sample designation"
+      }
+    },
+    "batchNumber": {
+      "type": "string",
+      "description": {
+        "de": "Chargennummer des Experiments",
+        "en": "Batch number of the experiment"
+      }
+    },
+    "targetFormulation": {
+      "type": "string",
+      "description": {
+        "de": "Zielformulierung oder Rezeptur (Zusammensetzung in %)",
+        "en": "Target formulation or recipe (composition in %)"
+      }
+    },
+    "procedureSteps": {
+      "type": "string",
+      "description": {
+        "de": "Durchführungsschritte des Experiments in chronologischer Reihenfolge",
+        "en": "Procedure steps of the experiment in chronological order"
+      }
+    },
+    "temperatureCelsius": {
+      "type": "number",
+      "description": {
+        "de": "Temperatur in °C während des Experiments",
+        "en": "Temperature in °C during the experiment"
+      }
+    },
+    "humidityPercent": {
+      "type": "number",
+      "description": {
+        "de": "Relative Luftfeuchtigkeit in % während des Experiments",
+        "en": "Relative humidity in % during the experiment"
+      }
+    },
+    "phValue": {
+      "type": "number",
+      "description": {
+        "de": "Gemessener pH-Wert",
+        "en": "Measured pH value"
+      }
+    },
+    "viscosity": {
+      "type": "string",
+      "description": {
+        "de": "Gemessene Viskosität (Wert und Einheit, z.B. 500 mPa·s)",
+        "en": "Measured viscosity (value and unit, e.g., 500 mPa·s)"
+      }
+    },
+    "duration": {
+      "type": "string",
+      "description": {
+        "de": "Dauer des Experiments (z.B. 2 Stunden, 30 Minuten)",
+        "en": "Duration of the experiment (e.g., 2 hours, 30 minutes)"
+      }
+    },
+    "observations": {
+      "type": "string",
+      "description": {
+        "de": "Beobachtungen während des Experiments (Farbe, Konsistenz, Geruch, Auffälligkeiten)",
+        "en": "Observations during the experiment (color, consistency, odor, anomalies)"
+      }
+    },
+    "result": {
+      "type": "string",
+      "description": {
+        "de": "Ergebnis des Experiments (bestanden/nicht bestanden, Messwerte)",
+        "en": "Result of the experiment (pass/fail, measurements)"
+      }
+    },
+    "deviations": {
+      "type": "string",
+      "description": {
+        "de": "Abweichungen vom Standard-Protokoll oder SOP",
+        "en": "Deviations from standard protocol or SOP"
+      }
+    },
+    "safetyNotes": {
+      "type": "string",
+      "description": {
+        "de": "Sicherheitshinweise oder besondere Vorsichtsmaßnahmen",
+        "en": "Safety notes or special precautions"
+      }
+    },
+    "nextSteps": {
+      "type": "string",
+      "description": {
+        "de": "Geplante nächste Schritte oder Folgeexperimente",
+        "en": "Planned next steps or follow-up experiments"
+      }
+    },
+    "comments": {
+      "type": "string",
+      "description": {
+        "de": "Freitext für zusätzliche Anmerkungen",
+        "en": "Free text for additional comments"
+      }
+    }
+  },
+
+  "required_fields": [
+    "researcherName", "experimentTitle", "experimentType", "experimentDate",
+    "rawMaterials", "procedureSteps", "result"
+  ],
+
+  "field_labels": {
+    "de": {
+      "researcherName": "Forscher/in",
+      "researcherId": "Mitarbeiter-ID",
+      "projectName": "Projektname",
+      "projectCode": "Projektcode",
+      "experimentTitle": "Experimenttitel",
+      "experimentType": "Experimenttyp",
+      "experimentDate": "Datum",
+      "laboratory": "Labor",
+      "equipment": "Geräte",
+      "rawMaterials": "Rohstoffe/Chemikalien",
+      "rawMaterialSource": "Rohstoffquelle",
+      "sampleId": "Proben-ID",
+      "batchNumber": "Chargennummer",
+      "targetFormulation": "Zielformulierung",
+      "procedureSteps": "Durchführung",
+      "temperatureCelsius": "Temperatur (°C)",
+      "humidityPercent": "Luftfeuchtigkeit (%)",
+      "phValue": "pH-Wert",
+      "viscosity": "Viskosität",
+      "duration": "Dauer",
+      "observations": "Beobachtungen",
+      "result": "Ergebnis",
+      "deviations": "Abweichungen",
+      "safetyNotes": "Sicherheitshinweise",
+      "nextSteps": "Nächste Schritte",
+      "comments": "Anmerkungen"
+    },
+    "en": {
+      "researcherName": "Researcher",
+      "researcherId": "Employee ID",
+      "projectName": "Project Name",
+      "projectCode": "Project Code",
+      "experimentTitle": "Experiment Title",
+      "experimentType": "Experiment Type",
+      "experimentDate": "Date",
+      "laboratory": "Laboratory",
+      "equipment": "Equipment",
+      "rawMaterials": "Raw Materials",
+      "rawMaterialSource": "Material Source",
+      "sampleId": "Sample ID",
+      "batchNumber": "Batch Number",
+      "targetFormulation": "Target Formulation",
+      "procedureSteps": "Procedure",
+      "temperatureCelsius": "Temperature (°C)",
+      "humidityPercent": "Humidity (%)",
+      "phValue": "pH Value",
+      "viscosity": "Viscosity",
+      "duration": "Duration",
+      "observations": "Observations",
+      "result": "Result",
+      "deviations": "Deviations",
+      "safetyNotes": "Safety Notes",
+      "nextSteps": "Next Steps",
+      "comments": "Comments"
+    }
+  },
+
+  "lims_sections": {
+    "header": ["researcherName", "researcherId", "projectName", "projectCode", "experimentTitle", "experimentType", "experimentDate", "laboratory"],
+    "materials": ["rawMaterials", "rawMaterialSource", "sampleId", "batchNumber", "targetFormulation", "equipment"],
+    "procedure": ["procedureSteps", "duration", "temperatureCelsius", "humidityPercent"],
+    "measurements": ["phValue", "viscosity", "observations"],
+    "results": ["result", "deviations", "safetyNotes", "nextSteps", "comments"]
+  },
+
+  "sop_suggestions": [
+    {
+      "keywords": ["viscosity", "viskosität", "brookfield", "rheometer", "fließverhalten", "flow", "consistency", "konsistenz"],
+      "sop_id": "SOP-LAB-2024-042",
+      "title": "Standard Viscosity Measurement Procedure for Adhesive Formulations",
+      "description": "Covers Brookfield and rotational rheometer methods for adhesive viscosity characterisation at 23 °C ± 1 °C.",
+      "version": "3.1",
+      "department": "Adhesive Technologies"
+    },
+    {
+      "keywords": ["ph", "ph-wert", "ph value", "acid", "säure", "buffer", "puffer", "alkaline", "alkalisch"],
+      "sop_id": "SOP-LAB-2023-018",
+      "title": "pH Measurement and Calibration Protocol for Aqueous Formulations",
+      "description": "Standard operating procedure for pH electrode calibration and measurement in aqueous formulations.",
+      "version": "2.4",
+      "department": "Formulation Science"
+    },
+    {
+      "keywords": ["surfactant", "tensid", "emulsion", "emulgator", "surface", "oberfläche", "hlb", "hlt"],
+      "sop_id": "SOP-LAB-2024-071",
+      "title": "Surfactant Screening and HLB Value Determination",
+      "description": "Procedure for systematic screening of surfactant candidates including HLB determination and emulsion stability assessment.",
+      "version": "1.8",
+      "department": "Home Care Innovation"
+    },
+    {
+      "keywords": ["stability", "stabilität", "aging", "alterung", "shelf", "lagerung", "freeze-thaw"],
+      "sop_id": "SOP-LAB-2022-033",
+      "title": "Accelerated Stability Testing Protocol for Consumer Products",
+      "description": "Protocol for accelerated ageing studies at 40 °C/75 % RH, 50 °C/ambient, and freeze-thaw cycling.",
+      "version": "4.0",
+      "department": "Quality Assurance"
+    },
+    {
+      "keywords": ["formulation", "formulierung", "mixing", "mischung", "blend", "recipe", "rezeptur", "composition"],
+      "sop_id": "SOP-LAB-2024-055",
+      "title": "Formulation Development and Documentation Standard",
+      "description": "Standard procedure for laboratory-scale formulation development, including documentation requirements for LIMS entry.",
+      "version": "2.2",
+      "department": "R&D Core"
+    },
+    {
+      "keywords": ["adhesive", "klebstoff", "bonding", "kleben", "bond strength", "haftung", "lap shear"],
+      "sop_id": "SOP-LAB-2023-089",
+      "title": "Adhesive Bond Strength Testing — Lap Shear Method",
+      "description": "Tensile lap shear test for adhesive systems per DIN EN 1465, covering substrate preparation and conditioning.",
+      "version": "1.5",
+      "department": "Adhesive Technologies"
+    }
+  ],
+
+  "material_lookups": {
+    "sodium lauryl sulfate": {
+      "name": "Sodium Lauryl Sulfate",
+      "cas": "151-21-3",
+      "lot": "LAB-2024-8832",
+      "supplier": "BASF",
+      "grade": "Surfactant Grade",
+      "spec_status": "✅ Approved",
+      "tds_sds": "Available",
+      "location": "Warehouse B, Shelf 4C"
+    },
+    "sls": {
+      "name": "Sodium Lauryl Sulfate (SLS)",
+      "cas": "151-21-3",
+      "lot": "LAB-2024-8832",
+      "supplier": "BASF",
+      "grade": "Surfactant Grade",
+      "spec_status": "✅ Approved",
+      "tds_sds": "Available",
+      "location": "Warehouse B, Shelf 4C"
+    },
+    "glycerin": {
+      "name": "Glycerol (Glycerin)",
+      "cas": "56-81-5",
+      "lot": "LAB-2024-6610",
+      "supplier": "Croda",
+      "grade": "Cosmetic Grade (Ph.Eur.)",
+      "spec_status": "✅ Approved",
+      "tds_sds": "Available",
+      "location": "Lab Cabinet 12, Bottle #3"
+    },
+    "glycerol": {
+      "name": "Glycerol (Glycerin)",
+      "cas": "56-81-5",
+      "lot": "LAB-2024-6610",
+      "supplier": "Croda",
+      "grade": "Cosmetic Grade (Ph.Eur.)",
+      "spec_status": "✅ Approved",
+      "tds_sds": "Available",
+      "location": "Lab Cabinet 12, Bottle #3"
+    },
+    "polyvinyl alcohol": {
+      "name": "Polyvinyl Alcohol (PVA)",
+      "cas": "9002-89-5",
+      "lot": "LAB-2023-4417",
+      "supplier": "Kuraray",
+      "grade": "Poval 217S",
+      "spec_status": "✅ Approved",
+      "tds_sds": "Available",
+      "location": "Warehouse A, Cold Storage"
+    },
+    "pva": {
+      "name": "Polyvinyl Alcohol (PVA)",
+      "cas": "9002-89-5",
+      "lot": "LAB-2023-4417",
+      "supplier": "Kuraray",
+      "grade": "Poval 217S",
+      "spec_status": "✅ Approved",
+      "tds_sds": "Available",
+      "location": "Warehouse A, Cold Storage"
+    },
+    "ethanol": {
+      "name": "Ethanol (96 %)",
+      "cas": "64-17-5",
+      "lot": "LAB-2024-9901",
+      "supplier": "Brenntag",
+      "grade": "Industrial Grade",
+      "spec_status": "✅ Approved",
+      "tds_sds": "Available",
+      "location": "Flammable Cabinet, Lab 302"
+    },
+    "propylene glycol": {
+      "name": "Propylene Glycol (1,2-Propanediol)",
+      "cas": "57-55-6",
+      "lot": "LAB-2024-7723",
+      "supplier": "Dow Chemical",
+      "grade": "USP/EP Grade",
+      "spec_status": "✅ Approved",
+      "tds_sds": "Available",
+      "location": "Lab Cabinet 8"
+    },
+    "xanthan gum": {
+      "name": "Xanthan Gum",
+      "cas": "11138-66-2",
+      "lot": "LAB-2024-3341",
+      "supplier": "CP Kelco",
+      "grade": "Keltrol CG-SFT",
+      "spec_status": "✅ Approved",
+      "tds_sds": "Available",
+      "location": "Dry Storage, Row 7"
+    },
+    "xanthan": {
+      "name": "Xanthan Gum",
+      "cas": "11138-66-2",
+      "lot": "LAB-2024-3341",
+      "supplier": "CP Kelco",
+      "grade": "Keltrol CG-SFT",
+      "spec_status": "✅ Approved",
+      "tds_sds": "Available",
+      "location": "Dry Storage, Row 7"
+    },
+    "citric acid": {
+      "name": "Citric Acid Monohydrate",
+      "cas": "5949-29-1",
+      "lot": "LAB-2024-2208",
+      "supplier": "Jungbunzlauer",
+      "grade": "Food/Pharma Grade",
+      "spec_status": "✅ Approved",
+      "tds_sds": "Available",
+      "location": "Lab Cabinet 3, Shelf 2"
+    },
+    "zitronensäure": {
+      "name": "Zitronensäure Monohydrat",
+      "cas": "5949-29-1",
+      "lot": "LAB-2024-2208",
+      "supplier": "Jungbunzlauer",
+      "grade": "Lebensmittel-/Pharmaqualität",
+      "spec_status": "✅ Freigegeben",
+      "tds_sds": "Verfügbar",
+      "location": "Laborschrank 3, Regal 2"
+    },
+    "carbomer": {
+      "name": "Carbomer 980 (Carbopol 980)",
+      "cas": "9003-01-4",
+      "lot": "LAB-2024-5503",
+      "supplier": "Lubrizol",
+      "grade": "Carbopol 980 NF Polymer",
+      "spec_status": "✅ Approved",
+      "tds_sds": "Available",
+      "location": "Warehouse B, Shelf 2A"
+    }
+  }
+}

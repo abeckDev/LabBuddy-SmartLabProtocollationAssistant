@@ -1,0 +1,16 @@
+services:
+  labbuddy:
+    build: .
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    environment:
+      - AZURE_VOICELIVE_ENDPOINT=${AZURE_VOICELIVE_ENDPOINT}
+      - AZURE_VOICELIVE_API_KEY=${AZURE_VOICELIVE_API_KEY:-}
+      - AZURE_STORAGE_ENDPOINT=${AZURE_STORAGE_ENDPOINT:-}
+      - VOICELIVE_MODEL=${VOICELIVE_MODEL:-gpt-4o}
+      - VOICELIVE_VOICE=${VOICELIVE_VOICE:-de-DE-SeraphinaMultilingualNeural}
+    volumes:
+      - ./backend:/app/backend
+      - ./frontend:/app/frontend

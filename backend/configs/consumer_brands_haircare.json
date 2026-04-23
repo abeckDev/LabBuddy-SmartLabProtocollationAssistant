@@ -1,0 +1,529 @@
+{
+  "profile_name": {
+    "de": "Consumer Brands — Haarpflege",
+    "en": "Consumer Brands — Hair Care"
+  },
+  "company": "Your Organization — Consumer Brands",
+  "division": "Hair Care",
+  "brand_color": "#0078D4",
+
+  "lims": {
+    "name": "LIMS",
+    "url_template": "https://lims.example.com/protocols/{protocol_id}"
+  },
+
+  "extraction_fields": {
+    "researcherName": {
+      "type": "string",
+      "description": {
+        "de": "Vollständiger Name des Forschers/der Forscherin",
+        "en": "Full name of the researcher"
+      }
+    },
+    "researcherId": {
+      "type": "string",
+      "description": {
+        "de": "Mitarbeiter-ID oder Personalnummer",
+        "en": "Employee ID or personnel number"
+      }
+    },
+    "projectName": {
+      "type": "string",
+      "description": {
+        "de": "Name des Forschungsprojekts",
+        "en": "Name of the research project"
+      }
+    },
+    "projectCode": {
+      "type": "string",
+      "description": {
+        "de": "Projektcode oder interne Referenznummer",
+        "en": "Project code or internal reference number"
+      }
+    },
+    "experimentTitle": {
+      "type": "string",
+      "description": {
+        "de": "Titel des Experiments",
+        "en": "Title of the experiment"
+      }
+    },
+    "experimentType": {
+      "type": "string",
+      "enum": ["Formulierung", "Sensorik", "Stabilitaetstest", "Farbtest", "Wirksamkeitstest", "Qualitaetskontrolle", "Sonstiges"],
+      "description": {
+        "de": "Art des Experiments: Formulierung, Sensorik, Stabilitätstest, Farbtest, Wirksamkeitstest, Qualitätskontrolle, Sonstiges",
+        "en": "Type of experiment: Formulation, Sensory, Stability Test, Color Test, Efficacy Test, Quality Control, Other"
+      }
+    },
+    "experimentDate": {
+      "type": "string",
+      "description": {
+        "de": "Datum des Experiments (TT.MM.JJJJ)",
+        "en": "Date of the experiment (DD.MM.YYYY)"
+      }
+    },
+    "laboratory": {
+      "type": "string",
+      "description": {
+        "de": "Bezeichnung des Labors oder Laborraums",
+        "en": "Laboratory name or room designation"
+      }
+    },
+    "equipment": {
+      "type": "string",
+      "description": {
+        "de": "Verwendete Geräte und Instrumente (z.B. Viskosimeter, pH-Meter, Schaumtester)",
+        "en": "Equipment and instruments used (e.g., viscometer, pH meter, foam tester)"
+      }
+    },
+    "ingredients": {
+      "type": "string",
+      "description": {
+        "de": "Liste der Inhaltsstoffe mit INCI-Namen und Prozentanteilen",
+        "en": "List of ingredients with INCI names and percentages"
+      }
+    },
+    "ingredientSource": {
+      "type": "string",
+      "description": {
+        "de": "Herkunft/Lieferant der Hauptinhaltsstoffe",
+        "en": "Source/supplier of key ingredients"
+      }
+    },
+    "sampleId": {
+      "type": "string",
+      "description": {
+        "de": "Proben-ID oder Probenbezeichnung",
+        "en": "Sample ID or sample designation"
+      }
+    },
+    "batchNumber": {
+      "type": "string",
+      "description": {
+        "de": "Chargennummer des Experiments",
+        "en": "Batch number of the experiment"
+      }
+    },
+    "targetFormulation": {
+      "type": "string",
+      "description": {
+        "de": "Zielformulierung oder Rezeptur (Zusammensetzung in %)",
+        "en": "Target formulation or recipe (composition in %)"
+      }
+    },
+    "productType": {
+      "type": "string",
+      "enum": ["Shampoo", "Conditioner", "Haarfarbe", "Styling", "Haarkur", "Sonstiges"],
+      "description": {
+        "de": "Produkttyp: Shampoo, Conditioner, Haarfarbe, Styling, Haarkur, Sonstiges",
+        "en": "Product type: Shampoo, Conditioner, Hair Color, Styling, Treatment, Other"
+      }
+    },
+    "hairType": {
+      "type": "string",
+      "description": {
+        "de": "Getesteter Haartyp (glatt, wellig, lockig, kraus, coloriert, geschädigt)",
+        "en": "Hair type tested (straight, wavy, curly, coily, colored, damaged)"
+      }
+    },
+    "applicationMethod": {
+      "type": "string",
+      "description": {
+        "de": "Anwendungsmethode (z.B. nasses Haar, aufschäumen, einwirken lassen)",
+        "en": "Application method (e.g., wet hair, lather, leave-in)"
+      }
+    },
+    "procedureSteps": {
+      "type": "string",
+      "description": {
+        "de": "Durchführungsschritte des Experiments in chronologischer Reihenfolge",
+        "en": "Procedure steps of the experiment in chronological order"
+      }
+    },
+    "temperatureCelsius": {
+      "type": "number",
+      "description": {
+        "de": "Temperatur in °C während des Experiments",
+        "en": "Temperature in °C during the experiment"
+      }
+    },
+    "duration": {
+      "type": "string",
+      "description": {
+        "de": "Dauer des Experiments (z.B. 2 Stunden, 30 Minuten)",
+        "en": "Duration of the experiment (e.g., 2 hours, 30 minutes)"
+      }
+    },
+    "phValue": {
+      "type": "number",
+      "description": {
+        "de": "Gemessener pH-Wert",
+        "en": "Measured pH value"
+      }
+    },
+    "viscosity": {
+      "type": "string",
+      "description": {
+        "de": "Gemessene Viskosität (Wert und Einheit, z.B. 3000 mPa·s)",
+        "en": "Measured viscosity (value and unit, e.g., 3000 mPa·s)"
+      }
+    },
+    "foamVolume": {
+      "type": "string",
+      "description": {
+        "de": "Schaumvolumen/-höhe (ml oder cm, z.B. nach Ross-Miles-Methode)",
+        "en": "Foam volume/height (ml or cm, e.g., per Ross-Miles method)"
+      }
+    },
+    "sensoryEvaluation": {
+      "type": "string",
+      "description": {
+        "de": "Sensorische Bewertung: Textur, Griffgefühl, Duft, Nachgefühl",
+        "en": "Sensory evaluation: texture, feel, fragrance, after-feel"
+      }
+    },
+    "conditioningEffect": {
+      "type": "string",
+      "description": {
+        "de": "Konditionierungseffekt: Nass-/Trockenkämmkraft, Glätte-Bewertung",
+        "en": "Conditioning effect: wet/dry combing force, smoothness rating"
+      }
+    },
+    "colorResult": {
+      "type": "string",
+      "description": {
+        "de": "Farbergebnis: Nuance, Abdeckung, Gleichmäßigkeit (bei Haarfärbe-Experimenten)",
+        "en": "Color result: shade, coverage, uniformity (for hair color experiments)"
+      }
+    },
+    "fragranceProfile": {
+      "type": "string",
+      "description": {
+        "de": "Duftprofil: Duftnoten und Intensitätsbewertung",
+        "en": "Fragrance profile: fragrance notes and intensity rating"
+      }
+    },
+    "stabilityConditions": {
+      "type": "string",
+      "description": {
+        "de": "Stabilitätsbedingungen: Lagerbedingungen für Stabilitätsprüfung",
+        "en": "Stability conditions: storage conditions for stability assessment"
+      }
+    },
+    "observations": {
+      "type": "string",
+      "description": {
+        "de": "Beobachtungen während des Experiments (Farbe, Konsistenz, Geruch, Auffälligkeiten)",
+        "en": "Observations during the experiment (color, consistency, odor, anomalies)"
+      }
+    },
+    "result": {
+      "type": "string",
+      "description": {
+        "de": "Ergebnis des Experiments (bestanden/nicht bestanden, Messwerte)",
+        "en": "Result of the experiment (pass/fail, measurements)"
+      }
+    },
+    "deviations": {
+      "type": "string",
+      "description": {
+        "de": "Abweichungen vom Standard-Protokoll oder SOP",
+        "en": "Deviations from standard protocol or SOP"
+      }
+    },
+    "safetyNotes": {
+      "type": "string",
+      "description": {
+        "de": "Sicherheitshinweise oder besondere Vorsichtsmaßnahmen",
+        "en": "Safety notes or special precautions"
+      }
+    },
+    "nextSteps": {
+      "type": "string",
+      "description": {
+        "de": "Geplante nächste Schritte oder Folgeexperimente",
+        "en": "Planned next steps or follow-up experiments"
+      }
+    },
+    "comments": {
+      "type": "string",
+      "description": {
+        "de": "Freitext für zusätzliche Anmerkungen",
+        "en": "Free text for additional comments"
+      }
+    }
+  },
+
+  "required_fields": [
+    "researcherName", "experimentTitle", "experimentType", "experimentDate",
+    "ingredients", "procedureSteps", "result"
+  ],
+
+  "field_labels": {
+    "de": {
+      "researcherName": "Forscher/in",
+      "researcherId": "Mitarbeiter-ID",
+      "projectName": "Projektname",
+      "projectCode": "Projektcode",
+      "experimentTitle": "Experimenttitel",
+      "experimentType": "Experimenttyp",
+      "experimentDate": "Datum",
+      "laboratory": "Labor",
+      "equipment": "Geräte",
+      "ingredients": "Inhaltsstoffe (INCI)",
+      "ingredientSource": "Lieferant",
+      "sampleId": "Proben-ID",
+      "batchNumber": "Chargennummer",
+      "targetFormulation": "Zielformulierung",
+      "productType": "Produkttyp",
+      "hairType": "Haartyp",
+      "applicationMethod": "Anwendungsmethode",
+      "procedureSteps": "Durchführung",
+      "temperatureCelsius": "Temperatur (°C)",
+      "duration": "Dauer",
+      "phValue": "pH-Wert",
+      "viscosity": "Viskosität",
+      "foamVolume": "Schaumvolumen",
+      "sensoryEvaluation": "Sensorische Bewertung",
+      "conditioningEffect": "Konditionierungseffekt",
+      "colorResult": "Farbergebnis",
+      "fragranceProfile": "Duftprofil",
+      "stabilityConditions": "Stabilitätsbedingungen",
+      "observations": "Beobachtungen",
+      "result": "Ergebnis",
+      "deviations": "Abweichungen",
+      "safetyNotes": "Sicherheitshinweise",
+      "nextSteps": "Nächste Schritte",
+      "comments": "Anmerkungen"
+    },
+    "en": {
+      "researcherName": "Researcher",
+      "researcherId": "Employee ID",
+      "projectName": "Project Name",
+      "projectCode": "Project Code",
+      "experimentTitle": "Experiment Title",
+      "experimentType": "Experiment Type",
+      "experimentDate": "Date",
+      "laboratory": "Laboratory",
+      "equipment": "Equipment",
+      "ingredients": "Ingredients (INCI)",
+      "ingredientSource": "Ingredient Source",
+      "sampleId": "Sample ID",
+      "batchNumber": "Batch Number",
+      "targetFormulation": "Target Formulation",
+      "productType": "Product Type",
+      "hairType": "Hair Type",
+      "applicationMethod": "Application Method",
+      "procedureSteps": "Procedure",
+      "temperatureCelsius": "Temperature (°C)",
+      "duration": "Duration",
+      "phValue": "pH Value",
+      "viscosity": "Viscosity",
+      "foamVolume": "Foam Volume",
+      "sensoryEvaluation": "Sensory Evaluation",
+      "conditioningEffect": "Conditioning Effect",
+      "colorResult": "Color Result",
+      "fragranceProfile": "Fragrance Profile",
+      "stabilityConditions": "Stability Conditions",
+      "observations": "Observations",
+      "result": "Result",
+      "deviations": "Deviations",
+      "safetyNotes": "Safety Notes",
+      "nextSteps": "Next Steps",
+      "comments": "Comments"
+    }
+  },
+
+  "lims_sections": {
+    "header": ["researcherName", "researcherId", "projectName", "projectCode", "experimentTitle", "experimentType", "experimentDate", "laboratory"],
+    "materials": ["ingredients", "ingredientSource", "sampleId", "batchNumber", "targetFormulation", "productType", "equipment"],
+    "procedure": ["procedureSteps", "duration", "temperatureCelsius", "applicationMethod", "hairType"],
+    "measurements": ["phValue", "viscosity", "foamVolume", "sensoryEvaluation", "conditioningEffect", "colorResult", "fragranceProfile"],
+    "results": ["observations", "result", "stabilityConditions", "deviations", "safetyNotes", "nextSteps", "comments"]
+  },
+
+  "sop_suggestions": [
+    {
+      "keywords": ["foam", "schaum", "schaumvolumen", "ross-miles", "foam height", "foam volume", "lather"],
+      "sop_id": "SOP-LAB-2024-011",
+      "title": "Shampoo Foam Volume Test (Ross-Miles Method)",
+      "description": "Standard procedure for measuring foam volume and stability of shampoo formulations using the Ross-Miles apparatus at 40 °C.",
+      "version": "2.0",
+      "department": "Hair Care R&D"
+    },
+    {
+      "keywords": ["combing", "kämmen", "kämmkraft", "combing force", "wet comb", "dry comb", "detangling", "entwirren"],
+      "sop_id": "SOP-LAB-2023-027",
+      "title": "Wet & Dry Combing Force Measurement",
+      "description": "Measures wet and dry combing forces on hair tresses using an Instron tensile tester to evaluate conditioning performance.",
+      "version": "1.6",
+      "department": "Hair Care R&D"
+    },
+    {
+      "keywords": ["color", "farbe", "haarfarbe", "hair dye", "coloration", "färbung", "wash fastness", "waschechtheit"],
+      "sop_id": "SOP-LAB-2024-038",
+      "title": "Hair Color Fastness and Wash Resistance Testing",
+      "description": "Protocol for evaluating color deposit, shade accuracy, and wash resistance of hair colorants over 20 wash cycles.",
+      "version": "1.3",
+      "department": "Hair Color Innovation"
+    },
+    {
+      "keywords": ["sensory", "sensorik", "panel", "touch", "feel", "griffgefühl", "fragrance", "duft", "texture", "textur"],
+      "sop_id": "SOP-LAB-2022-045",
+      "title": "Sensory Panel Evaluation for Hair Care Products",
+      "description": "Structured sensory panel evaluation protocol covering texture, lather quality, rinsability, wet feel, dry feel, and fragrance perception.",
+      "version": "3.2",
+      "department": "Consumer Insights & Sensory"
+    },
+    {
+      "keywords": ["surfactant", "tensid", "mild", "cleansing", "reinigung", "irritation", "gentle", "sulfate-free", "sulfatfrei"],
+      "sop_id": "SOP-LAB-2024-052",
+      "title": "Surfactant System Optimization for Mild Cleansing",
+      "description": "Procedure for optimizing surfactant blends (SLES, cocamidopropyl betaine, etc.) for mild cleansing with minimized skin irritation.",
+      "version": "1.4",
+      "department": "Hair Care R&D"
+    },
+    {
+      "keywords": ["stability", "stabilität", "aging", "alterung", "shelf", "lagerung", "emulsion", "separation", "trennung"],
+      "sop_id": "SOP-LAB-2023-063",
+      "title": "Accelerated Stability Testing — Hair Care Emulsions",
+      "description": "Protocol for accelerated ageing studies of hair care emulsions at 40 °C/75 % RH, 50 °C, and freeze-thaw cycling over 12 weeks.",
+      "version": "2.1",
+      "department": "Quality Assurance"
+    }
+  ],
+
+  "material_lookups": {
+    "sodium laureth sulfate": {
+      "name": "Sodium Laureth Sulfate (SLES)",
+      "cas": "9004-82-4",
+      "lot": "LAB-2026-1102",
+      "supplier": "BASF (Texapon N 70)",
+      "grade": "Cosmetic Grade",
+      "spec_status": "✅ Approved",
+      "tds_sds": "Available",
+      "location": "Hair Care Lab, Cabinet 2A"
+    },
+    "sles": {
+      "name": "Sodium Laureth Sulfate (SLES)",
+      "cas": "9004-82-4",
+      "lot": "LAB-2026-1102",
+      "supplier": "BASF (Texapon N 70)",
+      "grade": "Cosmetic Grade",
+      "spec_status": "✅ Approved",
+      "tds_sds": "Available",
+      "location": "Hair Care Lab, Cabinet 2A"
+    },
+    "cocamidopropyl betaine": {
+      "name": "Cocamidopropyl Betaine (CAPB)",
+      "cas": "61789-40-0",
+      "lot": "LAB-2026-0834",
+      "supplier": "Evonik (Tego Betain F 50)",
+      "grade": "Cosmetic Grade",
+      "spec_status": "✅ Approved",
+      "tds_sds": "Available",
+      "location": "Hair Care Lab, Cabinet 2A"
+    },
+    "capb": {
+      "name": "Cocamidopropyl Betaine (CAPB)",
+      "cas": "61789-40-0",
+      "lot": "LAB-2026-0834",
+      "supplier": "Evonik (Tego Betain F 50)",
+      "grade": "Cosmetic Grade",
+      "spec_status": "✅ Approved",
+      "tds_sds": "Available",
+      "location": "Hair Care Lab, Cabinet 2A"
+    },
+    "cetyl alcohol": {
+      "name": "Cetyl Alcohol (Cetearyl Alcohol)",
+      "cas": "36653-82-4",
+      "lot": "LAB-2026-0519",
+      "supplier": "Sasol",
+      "grade": "Cosmetic Grade, Ph.Eur.",
+      "spec_status": "✅ Approved",
+      "tds_sds": "Available",
+      "location": "Hair Care Lab, Shelf 5B"
+    },
+    "dimethicone": {
+      "name": "Dimethicone (Polydimethylsiloxane)",
+      "cas": "9006-65-9",
+      "lot": "LAB-2026-0721",
+      "supplier": "Dow (Xiameter PMX-200)",
+      "grade": "350 cSt, Cosmetic Grade",
+      "spec_status": "✅ Approved",
+      "tds_sds": "Available",
+      "location": "Silicone Cabinet, Lab 205"
+    },
+    "panthenol": {
+      "name": "D-Panthenol (Provitamin B5)",
+      "cas": "81-13-0",
+      "lot": "LAB-2026-0413",
+      "supplier": "DSM",
+      "grade": "75 % aqueous solution, Cosmetic Grade",
+      "spec_status": "✅ Approved",
+      "tds_sds": "Available",
+      "location": "Active Ingredients Cabinet, Lab 205"
+    },
+    "keratin": {
+      "name": "Keratin Hydrolyzate",
+      "cas": "69430-36-0",
+      "lot": "LAB-2025-2290",
+      "supplier": "Croda (Coltide Radiance)",
+      "grade": "Cosmetic Grade",
+      "spec_status": "✅ Approved",
+      "tds_sds": "Available",
+      "location": "Active Ingredients Cabinet, Lab 205"
+    },
+    "polyquaternium-10": {
+      "name": "Polyquaternium-10",
+      "cas": "68610-92-4",
+      "lot": "LAB-2026-0607",
+      "supplier": "Dow (UCARE Polymer JR-400)",
+      "grade": "Conditioning Polymer, Cosmetic Grade",
+      "spec_status": "✅ Approved",
+      "tds_sds": "Available",
+      "location": "Polymer Storage, Lab 205"
+    },
+    "citric acid": {
+      "name": "Citric Acid Monohydrate",
+      "cas": "5949-29-1",
+      "lot": "LAB-2026-0201",
+      "supplier": "Jungbunzlauer",
+      "grade": "Food/Pharma Grade",
+      "spec_status": "✅ Approved",
+      "tds_sds": "Available",
+      "location": "Lab Cabinet 3, Shelf 2"
+    },
+    "zitronensäure": {
+      "name": "Zitronensäure Monohydrat",
+      "cas": "5949-29-1",
+      "lot": "LAB-2026-0201",
+      "supplier": "Jungbunzlauer",
+      "grade": "Lebensmittel-/Pharmaqualität",
+      "spec_status": "✅ Freigegeben",
+      "tds_sds": "Verfügbar",
+      "location": "Laborschrank 3, Regal 2"
+    },
+    "fragrance oil": {
+      "name": "Fragrance Oil (Lab Standard Blend)",
+      "cas": "Proprietary",
+      "lot": "LAB-2026-FR-088",
+      "supplier": "Symrise",
+      "grade": "IFRA Compliant, Hair Care Grade",
+      "spec_status": "✅ Approved",
+      "tds_sds": "Available",
+      "location": "Fragrance Cabinet, Lab 210"
+    },
+    "parfüm": {
+      "name": "Parfümöl (Labor Standard-Mischung)",
+      "cas": "Proprietär",
+      "lot": "LAB-2026-FR-088",
+      "supplier": "Symrise",
+      "grade": "IFRA-konform, Haarpflege-Qualität",
+      "spec_status": "✅ Freigegeben",
+      "tds_sds": "Verfügbar",
+      "location": "Duftstoff-Schrank, Labor 210"
+    }
+  }
+}

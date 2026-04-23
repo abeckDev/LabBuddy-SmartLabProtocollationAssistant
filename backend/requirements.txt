@@ -1,0 +1,10 @@
+azure-ai-voicelive==1.2.0b4
+azure-identity
+azure-storage-blob
+azure-core
+openai>=1.30.0
+fastapi>=0.104.0
+uvicorn[standard]>=0.24.0
+python-dotenv
+openpyxl
+aiohttp

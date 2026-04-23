@@ -1,0 +1,16 @@
+name: labbuddy
+metadata:
+  template: lab-buddy
+
+services:
+  app:
+    project: .
+    host: containerapp
+    language: python
+    docker:
+      path: ./Dockerfile
+      context: .
+
+infra:
+  provider: bicep
+  path: ./infra

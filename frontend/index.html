@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LabBuddy — Smart Lab Protocol Assistant</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔬</text></svg>">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-left">
+            <img src="logo.png" alt="Logo" class="logo"
+                 onerror="this.style.display='none'">
+            <div class="header-text">
+                <h1>LabBuddy</h1>
+                <p class="tagline">Smart Lab Protocol Assistant</p>
+            </div>
+        </div>
+        <div class="header-right">
+            <!-- Config selector -->
+            <div class="config-selector">
+                <select id="config-select" title="Select demo profile">
+                    <!-- Populated by JS from /api/configs -->
+                </select>
+            </div>
+            <!-- Mode toggle -->
+            <div class="mode-toggle" id="mode-toggle-group" title="Switch between Low Tech and Medium Tech Preview">
+                <button id="mode-low" class="mode-btn active">🔬 Low Tech</button>
+                <button id="mode-medium" class="mode-btn">🚀 Medium Tech</button>
+            </div>
+            <div class="lang-toggle">
+                <button id="lang-de" class="lang-btn active" title="Deutsch">DE</button>
+                <button id="lang-en" class="lang-btn" title="English">EN</button>
+            </div>
+            <!-- Settings button -->
+            <button id="settings-btn" class="settings-btn" title="Azure settings">⚙️</button>
+            <span id="connection-status" class="status-dot offline" title="Disconnected"></span>
+        </div>
+    </header>
+
+    <!-- Setup required banner (shown when Azure endpoint is not configured) -->
+    <div id="setup-required-banner" class="setup-required-banner" style="display:none">
+        ⚠️ Azure endpoint not configured.
+        <a id="setup-required-link">Open Settings</a> to enter your Azure AI Services endpoint and API key.
+    </div>
+
+    <!-- Medium Tech toast notification -->
+    <div id="medium-tech-toast" class="medium-tech-toast" style="display:none">
+        🚀 Medium Tech Preview — Demonstrating advanced capabilities (simulated)
+        <span class="preview-badge">ROADMAP</span>
+    </div>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Left: Chat panel -->
+        <div class="chat-panel">
+            <div id="transcript-container">
+                <div class="welcome-message">
+                    <h2>Willkommen bei LabBuddy!</h2>
+                    <p>Klicken Sie auf Start, um Ihr Versuchsprotokoll zu starten.</p>
+                </div>
+            </div>
+
+            <!-- Medium Tech: Camera panel (hidden in Low Tech) -->
+            <div id="camera-panel" class="camera-panel medium-tech-panel" style="display:none">
+                <div class="camera-panel-header">
+                    <span>📷 Lab Camera</span>
+                    <span class="preview-badge">PREVIEW</span>
+                </div>
+                <div class="camera-preview-wrapper">
+                    <video id="camera-video" autoplay muted playsinline></video>
+                    <canvas id="camera-canvas" style="display:none"></canvas>
+                </div>
+                <button id="capture-btn" class="capture-btn" disabled>📸 Capture</button>
+            </div>
+
+            <div class="controls">
+                <div id="avatar-container" class="avatar-container">
+                    <img src="avatar.png" alt="LabBuddy" class="controls-avatar"
+                         onerror="this.style.display='none'">
+                </div>
+                <div class="controls-center">
+                    <div class="voice-orb-container">
+                    <div id="voice-orb" class="voice-orb idle">
+                        <button id="start-btn" class="start-end-btn" title="Start conversation">
+                            Start
+                        </button>
+                    </div>
+                    <button id="mute-btn" class="mute-btn" title="Mute microphone" style="display:none">
+                        <svg id="mute-icon-on" viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                            <path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3z"/>
+                            <path d="M17 11c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z"/>
+                        </svg>
+                        <svg id="mute-icon-off" viewBox="0 0 24 24" width="20" height="20" fill="currentColor" style="display:none">
+                            <path d="M19 11h-1.7c0 .74-.16 1.43-.43 2.05l1.23 1.23c.56-.98.9-2.09.9-3.28zm-4.02.17c0-.06.02-.11.02-.17V5c0-1.66-1.34-3-3-3S9 3.34 9 5v.18l5.98 5.99zM4.27 3L3 4.27l6.01 6.01V11c0 1.66 1.33 3 2.99 3 .22 0 .44-.03.65-.08l1.66 1.66c-.71.33-1.5.52-2.31.52-2.76 0-5.3-2.1-5.3-5.1H5c0 3.41 2.72 6.23 6 6.72V21h2v-3.28c.91-.13 1.77-.45 2.54-.9L19.73 21 21 19.73 4.27 3z"/>
+                        </svg>
+                    </button>
+                    </div>
+                    <span id="status-text">Klicken Sie auf Start, um zu beginnen</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right: Fields panel + Medium Tech panels -->
+        <div class="fields-panel">
+            <div class="fields-header">
+                <h2>Versuchsprotokoll</h2>
+            </div>
+
+            <div id="fields-container">
+                <!-- Fields are populated by JS -->
+            </div>
+
+            <!-- Medium Tech: LIMS Preview panel -->
+            <div id="lims-preview-panel" class="lims-preview-panel medium-tech-panel" style="display:none">
+                <div class="lims-panel-header" id="lims-panel-toggle">
+                    <span id="lims-panel-title">📊 LIMS Preview (Albert)</span>
+                    <span class="preview-badge">PREVIEW</span>
+                    <span class="lims-chevron">▼</span>
+                </div>
+                <div id="lims-panel-body" class="lims-panel-body">
+                    <div id="lims-record" class="lims-record">
+                        <div class="lims-section">
+                            <div class="lims-section-title">Header</div>
+                            <div id="lims-header-fields" class="lims-fields"></div>
+                        </div>
+                        <div class="lims-section">
+                            <div class="lims-section-title">Materials</div>
+                            <div id="lims-materials-fields" class="lims-fields"></div>
+                        </div>
+                        <div class="lims-section">
+                            <div class="lims-section-title">Procedure</div>
+                            <div id="lims-procedure-fields" class="lims-fields"></div>
+                        </div>
+                        <div class="lims-section">
+                            <div class="lims-section-title">Measurements</div>
+                            <div id="lims-measurements-fields" class="lims-fields"></div>
+                        </div>
+                        <div class="lims-section">
+                            <div class="lims-section-title">Results</div>
+                            <div id="lims-results-fields" class="lims-fields"></div>
+                        </div>
+                    </div>
+                    <button id="lims-submit-btn" class="lims-submit-btn" disabled>
+                        Submit to LIMS
+                    </button>
+                </div>
+            </div>
+
+            <!-- Medium Tech: Agent Activity feed -->
+            <div id="agent-activity-panel" class="agent-activity-panel medium-tech-panel" style="display:none">
+                <div class="agent-activity-header">
+                    <span>🤖 Agent Activity</span>
+                    <span class="preview-badge">PREVIEW</span>
+                </div>
+                <div id="agent-activity-feed" class="agent-activity-feed">
+                    <div class="agent-idle">Waiting for session activity...</div>
+                </div>
+            </div>
+
+            <div class="export-section">
+                <button id="export-btn" class="export-btn" disabled>
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+                        <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
+                    </svg>
+                    Export
+                </button>
+                <div id="download-links" class="download-links" style="display:none">
+                    <!-- Download links populated by JS -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- LIMS Confirmation dialog -->
+    <div id="lims-confirm-overlay" class="lims-confirm-overlay" style="display:none">
+        <div class="lims-confirm-card">
+            <div class="lims-confirm-title">
+                <span id="lims-confirm-title">
+                📋 Confirm Submission to <span id="lims-confirm-name">Albert</span> LIMS
+                </span>
+                <span class="preview-badge">PREVIEW</span>
+            </div>
+            <p class="lims-confirm-subtitle">Please review the extracted protocol fields before submission:</p>
+            <div id="lims-confirm-fields" class="lims-confirm-fields"></div>
+            <div class="lims-confirm-actions">
+                <button id="lims-confirm-yes" class="lims-confirm-btn confirm">✅ Confirm &amp; Submit</button>
+                <button id="lims-confirm-no" class="lims-confirm-btn cancel">✏️ Edit First</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Settings modal -->
+    <div id="settings-overlay" class="settings-overlay" style="display:none">
+        <div class="settings-card">
+            <div class="settings-header">
+                <span>⚙️ Azure Configuration</span>
+                <button id="settings-close" class="settings-close">✕</button>
+            </div>
+            <div id="settings-setup-banner" class="settings-setup-banner" style="display:none">
+                ⚠️ No Azure endpoint is configured via environment variables.
+                Enter your credentials below to get started.
+            </div>
+            <div class="settings-body">
+                <label class="settings-label">
+                    Azure AI Services Endpoint
+                    <span class="settings-hint">e.g. https://&lt;resource&gt;.cognitiveservices.azure.com/</span>
+                    <input id="settings-endpoint" type="url" class="settings-input"
+                           placeholder="https://your-resource.cognitiveservices.azure.com/" />
+                </label>
+                <label class="settings-label">
+                    API Key <span class="settings-hint">(optional — leave empty to use Managed Identity / <code>az login</code>)</span>
+                    <input id="settings-api-key" type="password" class="settings-input"
+                           placeholder="Leave empty for Managed Identity / az login" />
+                </label>
+                <label class="settings-label">
+                    Azure OpenAI Endpoint <span class="settings-hint">(optional — defaults to the AI Services endpoint above)</span>
+                    <input id="settings-openai-endpoint" type="url" class="settings-input"
+                           placeholder="Leave empty to use the same endpoint" />
+                </label>
+                <label class="settings-label">
+                    OpenAI Deployment Name <span class="settings-hint">(optional — default: gpt-4o)</span>
+                    <input id="settings-openai-deployment" type="text" class="settings-input"
+                           placeholder="gpt-4o" />
+                </label>
+            </div>
+            <div class="settings-footer">
+                <span class="settings-storage-note">🔒 Endpoint saved to localStorage · API key in sessionStorage only (cleared on tab close)</span>
+                <div class="settings-actions">
+                    <button id="settings-clear" class="settings-btn-secondary">Clear</button>
+                    <button id="settings-save" class="settings-btn-primary">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
